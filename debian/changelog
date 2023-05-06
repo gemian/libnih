@@ -1,0 +1,166 @@
+libnih (1.0.3+gemian1) unstable; urgency=medium
+
+  * Branching for Gemian with Debian patches applied
+
+ -- Adam Boardman <adamboardman@gmail.com>  Sat, 06 May 2023 10:43:27 +0100
+
+libnih (1.0.3-11) unstable; urgency=medium
+
+  * QA upload.
+
+  [ Debian Janitor ]
+  * Set debhelper-compat version in Build-Depends.
+  * Set upstream metadata fields: Bug-Submit (from ./configure),
+    Repository, Repository-Browse.
+
+  [ Sudip Mukherjee ]
+  * Fix FTBFS with gcc-10. (Closes: #957454)
+  * Update Standards-Version to 4.5.0
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Sun, 11 Oct 2020 19:42:44 +0100
+
+libnih (1.0.3-10) unstable; urgency=medium
+
+  * QA upload.
+  * Adapt test suite to expat 2.2.5. (Closes: #886416)
+  * Declare compliance with Debian Policy 4.1.3.
+  * Bump debhelper compatibility level to 11.
+    + Update versioned debhelper build-dependency accordingly.
+  * Update Vcs-* headers for switch to salsa.debian.org.
+
+ -- Axel Beckert <abe@debian.org>  Sat, 06 Jan 2018 14:28:28 +0100
+
+libnih (1.0.3-9) unstable; urgency=low
+
+  * QA upload.
+  * Apply "wrap-and-sort -a".
+  * Declare compliance with Debian Policy 4.1.1.
+  * Restrict architecture to "linux-any". Never built successfully
+    anywhere else. (Closes: #757250)
+  * Convert debian/copyright to machine-readable DEP5 format.
+  * Set "Rules-Requires-Root: no".
+  * Bump debhelper compatibility level to 10.
+    + Update versioned debhelper build-dependency accordingly.
+    + Remove explicit "--with autoreconf" from debian/rules.
+    + Remove explicit build-dependency on dh-autoreconf.
+
+ -- Axel Beckert <abe@debian.org>  Mon, 27 Nov 2017 07:00:03 +0100
+
+libnih (1.0.3-8) unstable; urgency=medium
+
+  * QA upload.
+  * Fix .so symlinks broken in previous upload.
+
+ -- Helmut Grohne <helmut@subdivi.de>  Tue, 15 Nov 2016 07:35:54 +0100
+
+libnih (1.0.3-7) unstable; urgency=medium
+
+  * QA upload.
+  * Bump debhelper compat level to 9 to be able to use multiarch paths and to
+    allow using dh-exec.
+  * Move pkg-config files to a multiarch location to fix cross builds.
+
+ -- Helmut Grohne <helmut@subdivi.de>  Thu, 10 Nov 2016 09:52:20 +0100
+
+libnih (1.0.3-6) unstable; urgency=medium
+
+  * QA upload.
+  * Fix wrong ptrace expectations in test_child.c, causing the testsuite
+    to fail with glibc >= 2.24.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Sun, 04 Sep 2016 13:42:04 +0200
+
+libnih (1.0.3-5) unstable; urgency=medium
+
+  * QA upload.
+  * Orphaning package, maintainer not active.
+  * Bump Policy Standards-Version to 3.9.8 (no changes needed)
+
+ -- Manuel A. Fernandez Montecelo <mafm@debian.org>  Thu, 26 May 2016 23:32:50 +0100
+
+libnih (1.0.3-4.3) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Run dh-autoreconf to update config.{sub,guess} and
+    {libtool,aclocal}.m4, necessary for some new ports.  Thanks Mauricio
+    Faria de Oliveira.  (Closes: #689622)
+
+ -- Manuel A. Fernandez Montecelo <mafm@debian.org>  Tue, 15 Jul 2014 20:06:36 +0100
+
+libnih (1.0.3-4.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Cherry-pick from upstream: update dbus code generator to allow for empty
+    lists for type 'as'.  Closes: #728036.
+
+ -- Steve Langasek <vorlon@debian.org>  Mon, 11 Nov 2013 07:37:27 +0000
+
+libnih (1.0.3-4.1) unstable; urgency=low
+
+  * Non-maintainer Upload.
+
+  [ Petr Lautrbach <plautrba@redhat.com>, Dmitrijs Ledkovs ]
+  * Fallback to lstat, if dirent.d_type is not available (not portable)
+    Closes: #695604
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Mon, 31 Dec 2012 18:32:21 +0100
+
+libnih (1.0.3-4) unstable; urgency=low
+
+  * Rebuild for new libc to update versioned dependency; this comes from
+    the __abort_msg dependency, dpkg-shlibs needs overriding since this is
+    actually a weak link, but this rebuild fixes things for now.
+    Closes: #625257.
+
+ -- Scott James Remnant <scott@netsplit.com>  Mon, 02 May 2011 15:08:33 -0700
+
+libnih (1.0.3-3) unstable; urgency=low
+
+  * New maintainer.  Closes: #624442.
+
+ -- Scott James Remnant <scott@netsplit.com>  Thu, 28 Apr 2011 14:26:05 -0700
+
+libnih (1.0.3-2) unstable; urgency=low
+
+  * Bump build dependency on libdbus-1-dev and dbus to (>= 1.4) for Unix file
+    descriptor passing support.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 10 Feb 2011 20:25:18 +0100
+
+libnih (1.0.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump debhelper compatibility level to 8 and update build dependency
+    accordingly.
+
+ -- Michael Biebl <biebl@debian.org>  Mon, 07 Feb 2011 22:19:13 +0100
+
+libnih (1.0.2-2) unstable; urgency=low
+
+  * Install library development files to /usr/lib and not /lib.
+  * Remove libtool *.la files as there are no reverse dependencies referencing
+    them.
+  * Bump Standards-Version to 3.9.1. No further changes.
+
+ -- Michael Biebl <biebl@debian.org>  Sun, 02 Jan 2011 21:09:40 +0100
+
+libnih (1.0.2-1) unstable; urgency=low
+
+  * Initial upload to Debian. Closes: #585071
+  * Based on the Ubuntu package for Lucid done by Scott James Remnant with the
+    following changes:
+    - Switch packages to priority optional.
+    - Use binary:Version instead of Source-Version.
+    - Bump Standards-Version to 3.8.4.
+    - Add Homepage and Vcs-* fields.
+    - Don't symlink /usr/share/doc directories.
+    - Refer to versioned /usr/share/common-licenses/GPL-2 file in
+      debian/copyright.
+    - List all symbols explicitly instead of using a wildcard and add symbols
+      introduced in 1.0.1.
+    - Use the symbols files to create the correct version info instead of
+      specifying it manually via shlibs.
+    - Switch to source format 3.0 (quilt).
+    - Add watch file to track new upstream releases.
+
+ -- Michael Biebl <biebl@debian.org>  Sun, 13 Jun 2010 23:36:52 +0200

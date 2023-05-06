@@ -1,0 +1,5 @@
+#!/usr/bin/dh-exec
+usr/lib/*/libnih-dbus.a
+usr/include/libnih-dbus.h
+usr/include/nih-dbus/
+usr/lib/pkgconfig/libnih-dbus.pc usr/lib/${DEB_HOST_MULTIARCH}/pkgconfig/

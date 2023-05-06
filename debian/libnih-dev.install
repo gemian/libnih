@@ -1,0 +1,6 @@
+#!/usr/bin/dh-exec
+usr/lib/*/libnih.a
+usr/include/libnih.h
+usr/include/nih/
+usr/lib/pkgconfig/libnih.pc usr/lib/${DEB_HOST_MULTIARCH}/pkgconfig/
+usr/share/aclocal/libnih.m4

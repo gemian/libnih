@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+%:
+	dh $@
+
+include /usr/share/dpkg/architecture.mk
+
+CFLAGS = -Wall -g -fstack-protector -fPIE
+LDFLAGS = -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -pie
+
+# Disable optimisations if noopt found in $DEB_BUILD_OPTIONS
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -O0
+	LDFLAGS += -Wl,-O0
+else
+	CFLAGS += -Os
+	LDFLAGS += -Wl,-O1
+endif
+
+override_dh_auto_configure:
+	dh_auto_configure -- CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
+
+override_dh_link:
+	dh_link -plibnih-dev lib/$$(basename $$(readlink debian/tmp/usr/lib/*/libnih.so)) usr/lib/$(DEB_HOST_MULTIARCH)/libnih.so
+	dh_link -plibnih-dbus-dev lib/$$(basename $$(readlink debian/tmp/usr/lib/*/libnih-dbus.so)) usr/lib/$(DEB_HOST_MULTIARCH)/libnih-dbus.so
+	dh_link --remaining-packages
+
+override_dh_auto_test:
+	:

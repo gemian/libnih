@@ -27,7 +27,7 @@
 
 NIH_BEGIN_EXTERN
 
-char *output_package;
+extern char *output_package;
 
 int   output          (const char *source_path, int source_fd,
 		       const char *header_path, int header_fd,
